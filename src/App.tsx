@@ -1,25 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+// import './App.css';
+import Header from './components/Header';
+import { useGetData } from "./hooks/useGetData";
+import Dashboard from './components/Dashboard';
 
 function App() {
+  const { response, error, isLoading } = useGetData("http://localhost:4000/requests");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      {!isLoading && <Dashboard estimates={response} />}
+    </>
   );
 }
 
