@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import CheckList from "./CheckList";
+import ToggleButton from "./ToggleButton";
 import "./Dashboard.css";
 import { PROCESSING_METHOD, MATERIAL } from "../constants"
+
 interface IResponse {
   id: number;
   title: string;
@@ -14,9 +16,11 @@ interface IResponse {
   material: Array<string>;
   status: string;
 }
+
 interface propsType {
   estimates: IResponse[] | undefined;
 }
+
 const DashboardContainer = styled.div`
 
 `;
@@ -27,15 +31,25 @@ const SelectContainer = styled.div`
 
 export default function Dashboard({ estimates }: propsType) {
   const [methods, setMethods] = useState(new Set<string>());
-  const [materials, setMeterials] = useState(new Set<string>());
+  const [materials, setMaterials] = useState(new Set<string>());
   const [cards, setCards] = useState(estimates);
+  const [isConsulting, setIsConsulting] = useState(false);
+  const onClickToggle = () => {
+    setIsConsulting(!isConsulting);
+  }
+  const onClickReset = () => {
+    setMethods(new Set<string>());
+    setMaterials(new Set<string>());
+  };
 
   useEffect(() => {
+    const copiedEstimates = isConsulting ? estimates?.filter(estimate => estimate.status === "상담중") : estimates;
+
     if (methods.size === 0 && materials.size === 0) {
-      setCards(estimates);
+      setCards(copiedEstimates);
       return;
     }
-    setCards(estimates?.filter(estimate => {
+    setCards(copiedEstimates?.filter(estimate => {
       for (let i = 0; i < estimate.material.length; i++) {
         if (materials.has(estimate.material[i])) {
           return true;
@@ -50,7 +64,7 @@ export default function Dashboard({ estimates }: propsType) {
 
       return false;
     }));
-  }, [methods, materials, estimates]);
+  }, [methods, materials, isConsulting, estimates]);
 
   return (
     <>
@@ -64,7 +78,9 @@ export default function Dashboard({ estimates }: propsType) {
       </DashboardContainer>
       <SelectContainer>
         <CheckList title={PROCESSING_METHOD.title} items={PROCESSING_METHOD.items} filters={methods} setFilters={setMethods} />
-        <CheckList title={MATERIAL.title} items={MATERIAL.items} filters={materials} setFilters={setMeterials} />
+        <CheckList title={MATERIAL.title} items={MATERIAL.items} filters={materials} setFilters={setMaterials} />
+        {(methods.size !== 0 || materials.size !== 0) && <div onClick={onClickReset}>필터링 리셋</div>}
+        <ToggleButton handleClick={onClickToggle} /> <div>상담 중인 요청만 보기</div>
       </SelectContainer>
     </>
   );
