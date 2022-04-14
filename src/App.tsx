@@ -1,17 +1,20 @@
 import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
+
 import Header from './components/Header';
 import { useGetData } from "./hooks/useGetData";
 import Dashboard from './components/Dashboard';
+import GlobalStyle from "./GlobalStyle";
 
 function App() {
   const { response, error, isLoading } = useGetData("http://localhost:4000/requests");
 
   return (
     <>
+      <GlobalStyle />
       <Header />
-      {!isLoading && <Dashboard estimates={response} />}
+      {<Dashboard estimates={response} isLoading={isLoading} />}
     </>
   );
 }

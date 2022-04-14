@@ -1,10 +1,8 @@
 import React from "react";
 import styled from 'styled-components';
-const ToggleSpan = styled.div`
+const ToggleContainer = styled.div`
   position: relative;
-  width: 200px;
-  height: 50px;
-  border-radius: 25px;
+  margin-right: 16px;
 `;
 
 const ToggleLabel = styled.label`
@@ -19,7 +17,7 @@ const ToggleLabel = styled.label`
     left: 0px;
     border-radius: 25px;
     position: absolute;
-    background-color: #F5F5F5;
+    background-color: var(--soft-grey);
     transition: all 0.4s ease;
   }
 `;
@@ -29,7 +27,7 @@ const ToggleInput = styled.input`
   width: 34px;
   height: 14px;
   border-radius: 25px;
-  background-color: #C2C2C2;
+  background-color: var(--grey);
   outline: none;
   &::before, ::after {
     z-index: 2;
@@ -39,11 +37,11 @@ const ToggleInput = styled.input`
     font-weight: bolder;
   }
   &:checked {
-    background-color: #BBDEFB;
+    background-color: var(--sky-blue);
   }
   &:checked + ${ToggleLabel} {
     &:after {
-      background-color: #2196F3;
+      background-color: var(--blue);
       left: 27px;
     }
   }
@@ -55,9 +53,9 @@ interface propsType {
 
 export default function ToggleButton({ handleClick }: propsType) {
   return (
-    <ToggleSpan>
+    <ToggleContainer>
       <ToggleInput type="checkbox" id="switch1" name="drone" onClick={() => handleClick()} />
       <ToggleLabel htmlFor="switch1"></ToggleLabel>
-    </ToggleSpan>
+    </ToggleContainer>
   );
 }
