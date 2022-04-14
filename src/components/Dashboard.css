@@ -25,17 +25,20 @@
   transform: rotate(-135deg);
 }
 
-.dropdown-check-list .anchor:active:after {
+/* .dropdown-check-list .anchor:active:after {
   right: 8px;
   top: 21%;
-}
+} */
 
 .dropdown-check-list ul.items {
+  position: absolute;
+  z-index: 99;
   padding: 2px;
   display: block;
   margin: 0;
   border: 1px solid #ccc;
   border-top: none;
+  background-color: #ffff
 }
 
 .dropdown-check-list ul.items li {
