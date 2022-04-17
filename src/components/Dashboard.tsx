@@ -26,10 +26,11 @@ interface propsType {
 const DashboardContainer = styled.div`
   display: flex;
   justify-content: center;
+  min-width: 100vh;
 `;
 
 const ContentContainer = styled.div`
-  width: 1130px;
+  min-width: 100vh;
 `;
 
 const MiddleContainer = styled.div`
@@ -37,6 +38,10 @@ const MiddleContainer = styled.div`
   align-items: center;
   position: relative;
   margin-bottom: 32px;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+    align-items: baseline;
+  }
 `;
 
 const SelectContainer = styled.div`
@@ -47,11 +52,19 @@ const ButtonContainer = styled.div`
   display: flex;
   position: absolute;
   right: 0px;
+  @media screen and (max-width: 500px) {
+    position: relative;
+  }
 `;
 
 const CardsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  @media screen and (max-width: 500px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Title = styled.div`
