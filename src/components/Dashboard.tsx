@@ -3,8 +3,9 @@ import styled from "styled-components";
 import CheckList from "./CheckList";
 import ToggleButton from "./ToggleButton";
 import RequestCard from "./RequestCard";
-import { PROCESSING_METHOD, MATERIAL } from "../constants"
-import { IoMdRefresh } from "react-icons/io"
+import { PROCESSING_METHOD, MATERIAL } from "../constants";
+import { IoMdRefresh } from "react-icons/io";
+
 interface IResponse {
   id: number;
   title: string;
@@ -33,8 +34,8 @@ const ContentContainer = styled.div`
 
 const MiddleContainer = styled.div`
   display: flex;
-  position: relative;
   align-items: center;
+  position: relative;
   margin-bottom: 32px;
 `;
 
@@ -60,24 +61,24 @@ const Title = styled.div`
 `;
 
 const Description = styled.div`
-  font-size: 16px;
   margin-bottom: 32px;
+  font-size: 16px;
 `;
 
 const FilterButton = styled.div`
   display: flex;
-  cursor: pointer;
-  color: var(--blue);
   align-items: center;
+  color: var(--blue);
+  cursor: pointer;
 `;
 
 const NoRequest = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   width: 1130px;
   height: 100px;
+  box-sizing: border-box;
   border: solid 1px var(--grey);
   border-radius: 4px;
   color: var(--dark-grey);
@@ -103,6 +104,7 @@ export default function Dashboard({ estimates, isLoading }: propsType) {
       setCards(copiedEstimates);
       return;
     }
+
     setCards(copiedEstimates?.filter(estimate => {
       for (let i = 0; i < estimate.material.length; i++) {
         if (materials.has(estimate.material[i])) {
@@ -124,7 +126,7 @@ export default function Dashboard({ estimates, isLoading }: propsType) {
     return cards?.map(card => {
       const { id } = card;
       return <RequestCard data={card} key={id} />
-    })
+    });
   };
 
   return (
