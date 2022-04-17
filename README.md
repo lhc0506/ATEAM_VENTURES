@@ -1,46 +1,27 @@
-# Getting Started with Create React App
+# ATEAM VENTURES 코딩테스트_이호찬
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Getting Started
+### 원격 저장소 내려받기
+```
+$ git clone https://github.com/lhc0506/ATEAM_VENTURES.git
+$ npm install
+```
+### 환경 변수 설정
+```
+REACT_APP_SERVER_URL=http://localhost:4000/requests
+```
+### 실행
+```
+$ json-server --watch requests.json --port 4000
+$ npm start
+```
 
-In the project directory, you can run:
+## Challenges
+### TypeScript 사용
+TypeScript를 처음 사용해보았습니다. 비록 Type 표기와 Interface 설정 정도만 구현해 보았지만, JavaScript와 다르게 정확히 타입을 설정해야 한다는 점에서 코드 구현을 할 때는 조금 번거로운 점이 있었습니다. 하지만 오타를 치거나 잘못된 타입을 넣는 경우 바로 오류를 알 수 있는 점에서 실수를 빠르게 고칠 수 있었습니다.
 
-### `npm start`
+TypeScript의 진가는 class를 사용할 때라고 알고 있어, 기회가 된다면 TypeScript에서 class를 사용해 볼 것입니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 반응형 웹 구현
+반응형 웹 역시 처음 구현해보았습니다. 검색 시 Media Query를 사용하거나 React환경에서는 react-responsive를 사용가능 할 수 있었습니다. 처음인 만큼 더 기초적인 Media Query를 사용하였습니다. 반응형 웹 역시 차후에 좀 더 세세하게 구현 해보고 싶습니다.
