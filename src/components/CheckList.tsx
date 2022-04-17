@@ -17,43 +17,43 @@ const ListContainer = styled.div<{ width: number, height: number }>`
 `;
 
 const ListBox = styled.div<{ width: number, height: number }>`
-  box-sizing: border-box;
-  position: relative;
-  cursor: pointer;
   display: flex;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  position: relative;
+  box-sizing: border-box;
   width: ${props => props.width}px;
   height: ${props => props.height}px;
-  align-items: center;
   padding-left: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  align-items: center;
+  cursor: pointer;
   &::after {
     position: absolute;
-    content: "";
+    top: 30%;
+    right: 10px;
+    padding: 3px;
     border-left: 1px solid black;
     border-top: 1px solid black;
-    padding: 3px;
-    right: 10px;
-    top: 30%;
     -moz-transform: rotate(-135deg);
     -ms-transform: rotate(-135deg);
     -o-transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
     transform: rotate(-135deg);
-  }
+    content: "";
+  };
 `;
 
 const ItemsContainer = styled.ul<{ width: number, height: number }>`
-  box-sizing: border-box;
+  display: block;
   position: absolute;
   z-index: 99;
-  padding: 0px;
-  display: block;
-  margin: 0;
-  border: 1px solid #ccc;
-  border-top: none;
-  background-color: #ffff;
+  box-sizing: border-box;
   width: ${props => props.width}px;
+  margin: 0;
+  padding: 0px;
+  border: 1px solid var(--grey);
+  border-top: none;
+  background-color: var(--white);
 `
 const ItemList = styled.li`
   list-style: none;
@@ -69,7 +69,7 @@ export default function CheckList({ title, items, filters, setFilters, width, he
     setIsVisible(!isVisible);
   };
 
-  const handleItemClick = (event: any) => {
+  const handleItemClick = (event: React.ChangeEvent<HTMLInputElement>) => {
     const isChecked = event.target.checked;
     const copiedFilters = new Set(filters);
 

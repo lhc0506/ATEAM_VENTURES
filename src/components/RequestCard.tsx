@@ -19,40 +19,40 @@ interface propsType {
 
 const CardContainer = styled.div`
   position: relative;
-  box-sizing: border-box;
   width: 366px;
   height: 356px;
-  border: 1px solid #E5E5E5;
-  border-radius: 4px;
+  box-sizing: border-box;
   margin-right: 16px;
   margin-bottom: 16px;
   padding: 24px 16px;
+  border: 1px solid #E5E5E5;
+  border-radius: 4px;
 `;
 
 const Title = styled.div`
+  margin-bottom: 4px;
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 4px;
 `;
 
 const Client = styled.div`
+  margin-bottom: 24px;
   font-size: 14px;
   font-weight: 500;
-  margin-bottom: 24px;
 `;
 
 const Due = styled.div`
+  margin-bottom: 16px;
   font-size: 14px;
   font-weight: 400;
   color: var(--dark-grey);
-  margin-bottom: 16px;
 `;
 
 const Line = styled.div`
   width: 100%;
-  text-align: center;
-  border-bottom: 1px solid var(--soft-grey);
   margin-bottom: 32px;
+  border-bottom: 1px solid var(--soft-grey);
+  text-align: center;
 `;
 
 const ContentKey = styled.div`
@@ -70,18 +70,18 @@ const ContentValue = styled.div`
 `;
 
 const StatusBox = styled.div`
-  position: absolute;
   display: grid;
+  position: absolute;
+  align-items: center;
+  top: 24px;
+  right: 16px;
   width: 50px;
   height: 24px;
   border-radius: 12px;
   border: 1px solid var(--orange);
-  top: 24px;
-  right: 16px;
-  color: var(--orange);
-  text-align: center;
-  align-items: center;
   font-size: 12px;
+  text-align: center;
+  color: var(--orange);
 `;
 
 const ButtonContainer = styled.div`
@@ -91,35 +91,35 @@ const ButtonContainer = styled.div`
 
 const DetailButton = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 108px;
   height: 32px;
   margin-right: 8px;
-  background-color: var(--blue);
-  color: var(--white);
-  text-align: center;
-  align-items: center;
-  justify-content: center;
   border-radius: 4px;
+  background-color: var(--blue);
   font-weight: 500;
+  text-align: center;
+  color: var(--white);
 `;
 
 const ChatButton = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 76px;
   height: 32px;
+  border-radius: 4px;
+  border: solid 1px var(--blue);
   background-color: var(--white);
   color: var(--blue);
   text-align: center;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  border: solid 1px var(--blue);
   font-weight: 500;
 `;
 
-// export default function RequestCard({ id, title, client, due, count, amount, method, material, status }: IResponse) {
 export default function RequestCard({ data }: propsType) {
   const { title, client, due, count, amount, method, material, status } = data;
+
   return (
     <>
       <CardContainer>
@@ -159,7 +159,6 @@ export default function RequestCard({ data }: propsType) {
           </StatusBox>
         }
       </CardContainer>
-
     </>
   );
 }
